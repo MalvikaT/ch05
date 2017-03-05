@@ -19,5 +19,17 @@ function get_category_name($category_id) {
     $statement->closeCursor();    
     $category_name = $category['categoryName'];
     return $category_name;
+
+function add_category($categoryName){
+    global $db;
+    $query = 'INSERT INTO guitar1_categories
+            (categoryName)
+            VALUES
+            (:categoryName)';
+            $statement = $db->prepare($query);
+            $statement->bindValue(':categoryName', $categoryName);
+            $statement->execute();
+            $statement->closeCursor();
+
 }
 ?>

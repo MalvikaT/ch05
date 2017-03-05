@@ -72,12 +72,13 @@ if ($action == 'list_products') {
     }
 }
 else if ($action == 'delete_category') {
-    $categoryID = filter_input(INPUT_POST, 'categoryID',
-        FILTER_VALIDATE_INT);
-    if ($categoryID == NULL || $categoryID == FALSE ||) {
-        $error = "Missing or incorrect category id.";
+    $categoryID = filter_input(INPUT_POST, 'categoryID');
+    if ($categoryID == NULL || $categoryID == FALSE ) {
+        $error = "Category id is missing";
         include('../errors/error.php');
-        } else {
+        } 
+
+        else {
             delete_category($categoryID);
             header("Location: .?action=list_categories");
         }

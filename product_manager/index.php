@@ -56,4 +56,7 @@ if ($action == 'list_products') {
      $categories = get_categories();
          include('category_list.php');
     }
+    else if ($action == 'show_add_category_form'){
+        include('category_add.php');
+    }
     ?>
